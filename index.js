@@ -2,7 +2,7 @@
 
 const express = require("express");
 const auth = require("./routes/authRoutes");
-const PORT = 1339;
+const PORT = process.env.PORT;
 const app = express();
 
 // Middlewares
@@ -12,6 +12,6 @@ app.use(express.static("public")); //* used to serve html files from public fold
 // Routes
 app.use("/api/v1", auth);
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
